@@ -170,7 +170,7 @@
     "test:unit": "vitest",
     "test:unit:ci": "vitest --run",
     "test:component:ci": "yarn cypress:run:component",
-    "start:api": "npx ts-node -P tsconfig.tsnode.json --files backend/app.ts",
+    "start:api": "yarn tsnode --files backend/app.ts",
     "start:api:watch": "nodemon --exec yarn tsnode --watch 'backend' backend/app.ts",
     "start:react:proxy-server": "yarn tsnode scripts/testServer.ts",
     "prettier": "prettier --write \"**/**.{ts,js,tsx}\" \"*.{json,md,yml}\"",
@@ -190,7 +190,7 @@
     "build": "vite build",
     "codesandbox:start:api": "yarn tsnode:not-instrumented --files backend/app.ts",
     "codesandbox:start": "NODE_ENV=development TSC_COMPILE_ON_ERROR=true concurrently \"vite\" yarn:start:api:codesandbox",
-    "postinstall": "patch-package"   
+    "postinstall": "husky install && patch-package"   
   },
   "engines": {
     "node": "^20.0.0 || ^22.0.0 || ^24.0.0"
